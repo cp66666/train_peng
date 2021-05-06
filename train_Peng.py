@@ -32,9 +32,9 @@ def config_params():
     parser.add_argument('--seed', type=int, default=1234)
     parser.add_argument('--gn', action='store_true',
                         help='whether to use group normalization')
-    parser.add_argument('--epoches', type=int, default=100)
+    parser.add_argument('--epoches', type=int, default=10)
     parser.add_argument('--batchsize', type=int, default=16)
-    parser.add_argument('--num_workers', type=int, default=4)
+    parser.add_argument('--num_workers', type=int, default=8)
     parser.add_argument('--in_dim', type=int, default=3,
                         help='3 for (x, y, z) or 6 for (x, y, z, nx, ny, nz)')
     parser.add_argument('--niters', type=int, default=8,
