@@ -155,8 +155,8 @@ def main():
     train_set = ModelNet40Peng(args.root, args.train_npts, train=True)
     test_set = ModelNet40Peng(args.root, args.train_npts, train=False)
     train_loader = DataLoader(train_set, batch_size=args.batchsize,
-                              shuffle=True, pin_memory=True, num_workers=args.num_workers)
-    test_loader = DataLoader(test_set, batch_size=args.batchsize, shuffle=False, pin_memory=True,
+                              shuffle=True, num_workers=args.num_workers)
+    test_loader = DataLoader(test_set, batch_size=args.batchsize, shuffle=False, 
                              num_workers=args.num_workers)
     model = IterativeBenchmark(in_dim=args.in_dim, niters=args.niters, gn = args.gn)
     model = model.cuda()
