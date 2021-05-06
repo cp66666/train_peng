@@ -1,0 +1,6 @@
+tqdm
+numpy
+torch==1.4.0
+tensorboard
+h5py
+scipy
