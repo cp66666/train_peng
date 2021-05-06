@@ -33,7 +33,7 @@ def config_params():
     parser.add_argument('--gn', action='store_true',
                         help='whether to use group normalization')
     parser.add_argument('--epoches', type=int, default=10)
-    parser.add_argument('--batchsize', type=int, default=48)
+    parser.add_argument('--batchsize', type=int, default=16)
     parser.add_argument('--num_workers', type=int, default=4)
     parser.add_argument('--in_dim', type=int, default=3,
                         help='3 for (x, y, z) or 6 for (x, y, z, nx, ny, nz)')
@@ -155,8 +155,8 @@ def main():
     train_set = ModelNet40Peng(args.root, args.train_npts, train=True)
     test_set = ModelNet40Peng(args.root, args.train_npts, train=False)
     train_loader = DataLoader(train_set, batch_size=args.batchsize,
-                              shuffle=True, num_workers=args.num_workers)
-    test_loader = DataLoader(test_set, batch_size=args.batchsize, shuffle=False,
+                              shuffle=True, pin_memory=True, num_workers=args.num_workers)
+    test_loader = DataLoader(test_set, batch_size=args.batchsize, shuffle=False, pin_memory=True,
                              num_workers=args.num_workers)
     model = IterativeBenchmark(in_dim=args.in_dim, niters=args.niters, gn = args.gn)
     model = model.cuda()
