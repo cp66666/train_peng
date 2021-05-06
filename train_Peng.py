@@ -33,7 +33,7 @@ def config_params():
     parser.add_argument('--gn', action='store_true',
                         help='whether to use group normalization')
     parser.add_argument('--epoches', type=int, default=50)
-    parser.add_argument('--batchsize', type=int, default=16)
+    parser.add_argument('--batchsize', type=int, default=32)
     parser.add_argument('--num_workers', type=int, default=4)
     parser.add_argument('--in_dim', type=int, default=3,
                         help='3 for (x, y, z) or 6 for (x, y, z, nx, ny, nz)')
